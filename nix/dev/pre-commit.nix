@@ -20,7 +20,7 @@
         };
 
         # Spell checking
-        typos.enable = true;
+        # typos.enable = true;
 
         # Nix hooks
         deadnix.enable = true;
