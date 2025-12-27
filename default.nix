@@ -1,1 +1,1 @@
-(import ./nix/flake-compat.nix).defaultNix
+(import ./flake-compat.nix).defaultNix

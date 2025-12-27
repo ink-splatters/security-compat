@@ -18,7 +18,7 @@
       packages = {
         security_compat = config.llvm.stdenv.mkDerivation ({
             inherit name;
-            src = ../.;
+            inherit src;
 
             installPhase = ''
               runHook preInstall
@@ -30,12 +30,6 @@
             '';
           }
           // config.commonArgs);
-
-        demo = pkgs-unstable.buildGo125Module {
-          name = "demo";
-          src = ../demo;
-          vendorHash = "sha256-Fa0Mcl+crWB8F5rJXXsBFZA6erxh2OhoAsNDl2xscO0=";
-        };
       };
     };
   };

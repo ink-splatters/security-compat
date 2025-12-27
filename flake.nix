@@ -44,7 +44,17 @@
         };
       };
       # this won't be exported
-      perSystem = {config, ...}: {
+      perSystem = {
+        config,
+        lib,
+        ...
+      }: {
+        options.src = lib.mkOption {
+          default = builtins.path {
+            path = ./.;
+            name = "security-compat";
+          };
+        };
         config.packages.default = config.packages.security_compat;
       };
 

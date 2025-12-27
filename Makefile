@@ -1,6 +1,6 @@
 CC ?= clang
-CFLAGS ?= -Wall -Wextra -O2 -mcpu=native
-LDFLAGS ?= -dynamiclib -Wl,-exported_symbol,_SecTrustCopyCertificateChain -fuse-ld=lld -framework Security -framework CoreFoundation
+CFLAGS ?= -Wall -Wextra -O2 -mcpu=native -DSECTRUST_COMPAT
+LDFLAGS ?= -dynamiclib -Wl,-exported_symbol,_SecTrustCopyCertificateChain -framework Security -framework CoreFoundation
 SRC = security_compat.c
 TARGET = libsecurity_compat.dylib
 PREFIX ?=

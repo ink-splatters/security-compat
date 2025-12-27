@@ -1,1 +1,1 @@
-(import ./nix/flake-compat.nix).shellNix
+(import ./flake-compat.nix).shellNix

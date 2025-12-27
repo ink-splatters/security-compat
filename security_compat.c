@@ -9,15 +9,15 @@
 
 #include <Availability.h>
 
-#if defined(IPSW_SECTRUST_COMPAT) && \
+#if defined(SECTRUST_COMPAT) && \
     (!defined(__MAC_OS_X_VERSION_MAX_ALLOWED) || \
     __MAC_OS_X_VERSION_MAX_ALLOWED < 101400)
 #error macOS SDK 10.14+ is required
-#endif // IPSW_SECTRUST_COMPAT
+#endif // SECTRUST_COMPAT
 
 #if defined(__MAC_OS_X_VERSION_MAX_ALLOWED) && \
     __MAC_OS_X_VERSION_MAX_ALLOWED < 120000 || \
-    defined(IPSW_SECTRUST_COMPAT)
+    defined(SECTRUST_COMPAT)
 
 #include <Security/Security.h>
 #include <CoreFoundation/CoreFoundation.h>

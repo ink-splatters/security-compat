@@ -2,7 +2,7 @@
 
 // Backward compatible implementation of SecTrustCopyCertificateChain (macOS 12)
 // Disabled by default, except when macOS SDK older than 12 is detected. 
-// Use -DSECTRUST_COMPAT to force-enable.
+// Use 'sectrust_compat' build tag to force-enable.
 
 // Usage:
 //
