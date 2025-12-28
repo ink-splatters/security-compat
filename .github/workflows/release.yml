@@ -1,0 +1,33 @@
+name: Release
+on:
+  push:
+    tags:
+      - 'v*'
+jobs:
+  build-and-release:
+    runs-on: macos-15
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@main
+      - uses: DeterminateSystems/magic-nix-cache-action@main
+      - name: build
+        run: nix build .#default -L --print-build-logs --verbose
+      - name: Get tag message
+        id: tag_msg
+        run: |
+          MSG=$(git tag -l --format='%(contents)' ${{ github.ref_name }})
+          if [ -z "$MSG" ]; then
+            MSG="Release ${{ github.ref_name }}"
+          fi
+
+          echo "message<<EOF" >> $GITHUB_OUTPUT
+          echo "$MSG" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          body: ${{ steps.tag_msg.outputs.message }}
+          files: result/lib/*
