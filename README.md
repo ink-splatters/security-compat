@@ -51,6 +51,10 @@ go version go1.25.4 darwin/arm64
 
 ```
 
+### Go Module
+
+See [examples/hello](./examples/hello/README.md)
+
 ## Shim availability
 
 As a safenet, the shim is disabled if newer macOS SDK is detected.
@@ -62,7 +66,3 @@ Details: [security_compat.c](./security_compat.c)
 ## License
 
 [MIT](./LICENSE)
-
-### Go Module
-
-See [examples/hello](./examples/hello/README.md)
